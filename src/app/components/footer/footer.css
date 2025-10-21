@@ -1,0 +1,23 @@
+.footer {
+  width: 100vw;
+  background-color: rgb(63, 63, 63);
+ 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.redes-sociales{
+    display:flex;
+    gap: 20px;
+}
+
+.redes-sociales i {
+    color: var(--primaryColor) ;
+    font-size: 30px;
+}
+
+span{
+    color: white;
+}

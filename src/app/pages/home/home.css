@@ -1,0 +1,10 @@
+/* Banner*/
+.banner {
+  width: 100vw;
+  height: 50vh;
+  background: var(--gradient);
+}
+
+/*Productos*/
+
+/*llamado a la accion*/

@@ -1,0 +1,30 @@
+<!-- menu de navegacion-->
+<link rel="stylesheet" href="navbar.css">
+<nav class="navbar navbar-expand-lg clasePropia"> <!-- clase bg limita mucho para los estilos personalizado-->
+    <div class="container-fluid">
+        
+        <a class="navbar-brand" href="#"><i class="bi bi-bag-heart"></i>Tortilla</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <!--colapse siempre se debe mantener es el que mantiene el diseño responsivo-->
+            <ul class="navbar-nav ms-auto d-flex gap-3 alig-items-center">
+                <li><a class="nav-link" routerLink="/">Inicio</a></li>
+                <li><a class="btn btnInicioSesion" routerLink="/login">Inicia Sesion</a></li>
+                <li><a class="btn btnRegistro" routerLink="/register">Registrate</a></li>
+                <li><a class="nav-link" routerLink="/products">Productos</a></li>    
+                
+                @if(isVisible){
+                   <li><a class="nav-link" routerLink="/admin">dashboard</a></li>
+                        
+                }
+                
+
+            </ul>
+
+
+        </div>
+    </div>
+</nav>

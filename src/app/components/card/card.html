@@ -1,0 +1,21 @@
+<section class = "row">
+
+<!--Contenido dinamico se pone la variable {{para que cambien con lo que hay en la base de datos }}-->
+
+    @for (item of allProducts; track $index) {
+    <div class = "col">
+        <div class="card" style="width: 18rem;">
+            <img [src]="baseUrl + item.image" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">{{item.title}}</h5>
+                <p class="card-text">{{item.description}}</p>
+                <a href="#" class="btn btn-primary">{{item.price}}</a>
+                <h3>{{item.categories}}</h3>
+            </div>
+        </div>
+    </div>
+    }
+
+
+
+</section>
