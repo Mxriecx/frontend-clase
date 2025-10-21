@@ -3,6 +3,7 @@ import { ReactiveFormsModule, FormGroup, FormControl, Validators } from '@angula
 import { User } from '../../interfaces/user';
 import { UserService } from '../../services/users';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-register',
@@ -42,6 +43,13 @@ export class Register {
     this._userservice.postUser(userData).subscribe({
       next : (res : any )=>{
         console.log(res);
+        Swal.fire({
+          title : "Ok",
+          text : res.mensaje,
+          icon :"success"
+        }).then(()=>{
+          this._router.navigate(["/login"])
+        })
       },
       error : (err:any) =>{
         console.error(err.error.mensaje)
