@@ -6,28 +6,51 @@
 
         <div class="mb-3">
             <label for="nombre" class="form-label">Nombre completo</label>
-            <input type="text" class="form-control" id="nombre" formControlName="name" placeholder="ingrese su nombre completo">
+            <input 
+            type="text" 
+            class="form-control"
+            id="nombre" 
+            formControlName="name" 
+            placeholder="ingrese su nombre completo"
+            required>
 
         </div>
 
         <div class="mb-3">
             <label for="username" class="form-label">Username</label>
-            <input type="text" class="form-control" id="username" formControlName="username"
-            autocomplete="username" placeholder="Elige un username">
+            <input 
+            type="text" 
+            class="form-control" 
+            id="username" 
+            formControlName="username"
+            autocomplete="username" 
+            placeholder="Elige un username"
+            required>
 
         </div>
 
         <div class="mb-3">
             <label for="correo" class="form-label">Email address</label>
-            <input type="email" class="form-control" id="correo" formControlName="email"
-            autocomplete="email" placeholder="Ingresa tu correo electronico">
+            <input 
+            type="email" 
+            class="form-control" 
+            id="correo" 
+            formControlName="email"
+            autocomplete="email" 
+            placeholder="Ingresa tu correo electronico" 
+            required>
 
         </div>
                 
 
         <div class="mb-3">
             <label for="edad" class="form-label">edad</label>
-            <input type="number" class="form-control" id="edad" formControlName="age" placeholder="Ingresa tu edad">
+            <input type="number"
+             class="form-control" 
+             id="edad" 
+             formControlName="age" 
+             placeholder="Ingresa tu edad" 
+             required>
 
         </div>
 
@@ -35,9 +58,13 @@
             <label for="contrasena" class="form-label">Password</label>
             <input type="password" class="form-control" id="contrasena" formControlName="password"
             autocomplete="new-password"
-            placeholder="Ingresa una contrasena">
+            placeholder="Ingresa una contrasena"
+            required
+            >
         </div>
-
+         <!-- validaciones vanilla, y formularios basados en plantillas Template Form -->
+            <!-- required
+            minlength="8" -->
         <button type="submit" class="btn">registrate</button>
     </form>
 </main>

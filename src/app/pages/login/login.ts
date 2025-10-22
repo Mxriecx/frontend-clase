@@ -17,8 +17,8 @@ export class Login {
 
 
   LoginForm = new FormGroup({
-    emailLogin: new FormControl(""),
-    passwordLogin: new FormControl("")
+    emailLogin: new FormControl("",[Validators.required,Validators.email]),
+    passwordLogin: new FormControl("",[Validators.required, Validators.minLength(8)])
   })
 
   // manejo de eventos
@@ -27,6 +27,11 @@ export class Login {
     //const email =this.LoginForm.value.emailLogin;
     //const password = this.LoginForm.value.passwordLogin;
     //console.log(email,password);
+
+    if(this.LoginForm.invalid){
+      this.LoginForm.markAllAsTouched();
+      return; // poder agregar estilos 
+    }
 
     const credenciales: Credencials = {
       emaillogin: this.LoginForm.value.emailLogin || "",

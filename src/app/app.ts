@@ -1,7 +1,9 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Navbar } from './components/navbar/navbar';
 import { Footer } from './components/footer/footer';
+import { LoginService } from './services/login';
+
 
 @Component({
   selector: 'app-root',
@@ -10,5 +12,8 @@ import { Footer } from './components/footer/footer';
   styleUrl: './app.css'
 })
 export class App {
- 
+
+ private _loginService =inject(LoginService);
+
+ admin : boolean = this._loginService.isAdmin()
 }

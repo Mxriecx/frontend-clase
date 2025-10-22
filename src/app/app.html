@@ -1,14 +1,16 @@
 <header>
+
+  @if(!admin){
   <app-navbar></app-navbar>
- 
+  }
 </header>
 
 <router-outlet></router-outlet>
 
-
+@if(!admin){
 <footer>
    <app-footer></app-footer>
 
 </footer>
-
+}
 

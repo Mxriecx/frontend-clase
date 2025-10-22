@@ -1,5 +1,5 @@
 /* Banner*/
-.banner {
+section {
   width: 100vw;
   height: 50vh;
   background: var(--gradient);

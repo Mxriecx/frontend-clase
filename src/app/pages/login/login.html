@@ -11,6 +11,7 @@
             class="form-control" 
             formControlName="emailLogin"
             placeholder="Ingresa tu correo"
+            [class.is-invalid]="LoginForm.get('emailLogin')?.invalid"
             >
 
         </div>

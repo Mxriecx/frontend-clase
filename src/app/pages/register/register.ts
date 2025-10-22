@@ -14,47 +14,53 @@ import Swal from 'sweetalert2';
 export class Register {
 
   private _userservice = inject(UserService);
-  private _router =inject(Router);
+  private _router = inject(Router);
 
   registerForm = new FormGroup({
-    name: new FormControl(""),
-    username: new FormControl(""),
-    email: new FormControl(""),
-    age: new FormControl<number | null>(null),
-    password: new FormControl<string>(""),
-    
+    name: new FormControl('', [Validators.required]),
+    username: new FormControl('', [Validators.required]),
+    email: new FormControl('', [Validators.required, Validators.email]),
+    age: new FormControl<number | null>(null), //campo opcional
+    password: new FormControl<string>('', [Validators.required, Validators.minLength(8)]),
+    // Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^a-zA-Z\d\s]).{8,}$/) 
   });
 
-  handleSubmit(){
+  handleSubmit() {
 
-    const userData : User = {
+    const userData: User = {
 
-      name : this.registerForm.value.name ||"",
-      age : this.registerForm.value.age || 0,
-      username : this.registerForm.value.username||"",
-      email : this.registerForm.value.email ||"",
-      password : this.registerForm.value.password ||"",
-      role : "user"
-        
+      name: this.registerForm.value.name || "",
+      age: this.registerForm.value.age || 0,
+      username: this.registerForm.value.username || "",
+      email: this.registerForm.value.email || "",
+      password: this.registerForm.value.password || "",
+      role: "user"
+
     }
 
-    console.log("datos del usuario :" , userData);
+    console.log("datos del usuario :", userData);
 
     this._userservice.postUser(userData).subscribe({
-      next : (res : any )=>{
+      next: (res: any) => {
         console.log(res);
         Swal.fire({
-          title : "Ok",
-          text : res.mensaje,
-          icon :"success"
-        }).then(()=>{
+          title: "Ok",
+          text: res.mensaje,
+          icon: "success"
+        }).then(() => {
           this._router.navigate(["/login"])
         })
       },
-      error : (err:any) =>{
-        console.error(err.error.mensaje)
+       error : (err:any) => {
+        console.error(err.error.mensaje);
+        Swal.fire({
+          title : "Oops!",
+          text: err.error.mensaje,
+          icon: "error"
+        })
       }
     });
-  }
 
+  }
+  validation() { }
 }
